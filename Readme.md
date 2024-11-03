@@ -31,14 +31,15 @@ This project automates the process of monitoring your FUTU screen, capturing scr
 ### Step 2: Prepare the Scripts
 1. **Download the Scripts**: Ensure you have `quant-monitor.ps1`, `quant-monitor.xml`, and `keep.bat`.
 2. **Modify Paths**: Update the paths in `quant-monitor.ps1` as necessary to point to your desired save location and API endpoint.
+3. **Put it somewhere**: Put on Desktop if you are lazy.
 
 ### Step 3: Schedule the Script
 1. **Import Task Scheduler Configuration**:
    - Open Task Scheduler.
    - Import the `quant-monitor.xml` file.
 2. **Configure Schedule**:
-   - Set the task to run every 10 minutes.
-   - Ensure it is set to run whether the user is logged on or not and with the highest privileges.
+   - Set the task to run every 1 hour.
+   - Ensure it is set to run when the user is logged on and with the highest privileges.
 
 ### Step 4: Run the Batch File
 1. **Execute keep.bat**:
