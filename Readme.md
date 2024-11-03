@@ -7,7 +7,7 @@ This project automates the process of monitoring your FUTU screen, capturing scr
 
 ### 1. quant-monitor.ps1
 - **Function**: Captures the top-left 25% of the screen, saves the screenshot to the drive, and uploads it to the Azure API.
-- **Usage**: This script is scheduled to run every 1 hours to continuously monitor the screen.
+- **Usage**: This script is scheduled to run every 30 mins to continuously monitor the screen.
 
 ### 2. Azure Logic App
 - **Function**: Processes the uploaded images using the OCR service to check for the presence of the text "已停止". Sends alerts if the specified text is detected.
@@ -38,7 +38,7 @@ This project automates the process of monitoring your FUTU screen, capturing scr
    - Open Task Scheduler.
    - Import the `quant-monitor.xml` file.
 2. **Configure Schedule**:
-   - Set the task to run every 1 hour.
+   - Set the task to run every 30 mins.
    - Ensure it is set to run when the user is logged on and with the highest privileges.
 
 ### Step 4: Run the Batch File
