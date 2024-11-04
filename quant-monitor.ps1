@@ -19,8 +19,8 @@ $graphic.CopyFromScreen($Left, $Top, 0, 0, $fullBitmap.Size)
 $fullBitmap.Save("$FullScreenshotPath", [System.Drawing.Imaging.ImageFormat]::Jpeg)
 
 # Now crop the top-left 25%
-$Width = [math]::Round($FullWidth / 2)
-$Height = [math]::Round($FullHeight / 2)
+$Width = [math]::Round($FullWidth / 4)
+$Height = [math]::Round($FullHeight / 4)
 $cropRectangle = New-Object System.Drawing.Rectangle(0, 0, $Width, $Height)
 
 $croppedBitmap = $fullBitmap.Clone($cropRectangle, $fullBitmap.PixelFormat)
@@ -29,8 +29,8 @@ $croppedBitmap = $fullBitmap.Clone($cropRectangle, $fullBitmap.PixelFormat)
 for ($x = 0; $x -lt $croppedBitmap.Width; $x++) {
     for ($y = 0; $y -lt $croppedBitmap.Height; $y++) {
         $color = $croppedBitmap.GetPixel($x, $y)
-        if ($color.R -gt 100 -and $color.G -lt 100 -and $color.B -lt 100) {
-            $croppedBitmap.SetPixel($x, $y, [System.Drawing.Color]::White)
+        if ($color.R -gt 80 -and $color.G -lt 100 -and $color.B -lt 100) {
+            $croppedBitmap.SetPixel($x, $y, [System.Drawing.Color]::Ivory)
         }
     }
 }
