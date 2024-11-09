@@ -89,8 +89,9 @@
                                     "uri": "https://prod-07.eastus.logic.azure.com:443/workflows/338d9398bcda45be808911d825f6b020/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1DUp1eqwoSnMCpLTJAtsp51vyCZsMGUj2TioLuN_xnM",
                                     "method": "POST",
                                     "body": {
-                                        "subject": "Quant Trade is Down on LY-XIAOMINOTEBO.",
-                                        "body": "已停止 detected"
+                                        "subject": "Quant Trade is Down.",
+                                        "body": "No 'Running' detected on @{split(split(item()?['headers']?['Content-Disposition'],' ')[1],'=')[1]}",
+                                        "image": "@{item()?['body']?['$content']}"
                                     }
                                 },
                                 "runtimeConfiguration": {
@@ -111,10 +112,12 @@
                         "expression": {
                             "or": [
                                 {
-                                    "contains": [
-                                        "@body('Optical_Character_Recognition_(OCR)_to_Text')?['text']",
-                                        "已 停 止"
-                                    ]
+                                    "not": {
+                                        "contains": [
+                                            "@body('Optical_Character_Recognition_(OCR)_to_Text')?['text']",
+                                            "Running"
+                                        ]
+                                    }
                                 }
                             ]
                         },
